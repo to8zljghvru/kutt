@@ -1,0 +1,75 @@
+services:
+  - type: web
+    name: kutt
+    env: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: DB_CLIENT
+        value: pg
+      - key: DB_HOST
+        fromDatabase:
+          name: kutt-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: kutt-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: kutt-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: kutt-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: kutt-db
+          property: password
+
+      - key: REDIS_HOST
+        fromService:
+          type: redis
+          name: kutt-redis
+          property: host
+      - key: REDIS_PORT
+        fromService:
+          type: redis
+          name: kutt-redis
+          property: port
+
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SITE_NAME
+        value: Kutt
+      - key: PORT
+        value: 3000
+      - key: DEFAULT_DOMAIN
+        value: to8-short.onrender.com
+        
+      - key: TRUST_PROXY
+        value: "1"
+        
+      - key: DISALLOW_REGISTRATION
+        value: "false"
+
+      - key: DISALLOW_ANONYMOUS_LINKS
+        value: "false"
+        
+      - key: LINK_LENGTH
+        value: "6"
+
+      - key: NODE_ENV
+        value: production
+        
+  - type: postgres
+    name: kutt-db
+    plan: free
+    databaseName: kutt
+    user: kutt
+
+  - type: redis
+    name: kutt-redis
+    plan: free
