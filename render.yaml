@@ -49,7 +49,7 @@ services:
       - key: APP_URL
         value: https://to8-short.onrender.com
       - key: DEFAULT_DOMAIN
-        value: to8-short.onrender.com
+        value: https://to8-short.onrender.com
         
       - key: TRUST_PROXY
         value: "1"
