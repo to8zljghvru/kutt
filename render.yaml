@@ -48,6 +48,8 @@ services:
         value: to8-short.onrender.com
       - key: APP_HOST
         value: to8-short.onrender.com
+      - key: SERVER_CNAME_ADDRESS
+        value: to8-short.onrender.com
       - key: TRUST_PROXY
         value: "1"
       - key: DISALLOW_REGISTRATION
