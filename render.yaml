@@ -44,10 +44,10 @@ services:
         generateValue: true
       - key: SITE_NAME
         value: Kutt
-      - key: PORT
-        value: 3000
       - key: DEFAULT_DOMAIN
-        value: https://to8-short.onrender.com
+        value: to8-short.onrender.com
+      - key: APP_HOST
+        value: to8-short.onrender.com
       - key: TRUST_PROXY
         value: "1"
       - key: DISALLOW_REGISTRATION
