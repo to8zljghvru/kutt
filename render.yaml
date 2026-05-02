@@ -46,6 +46,8 @@ services:
         value: Kutt
       - key: PORT
         value: 3000
+      - key: APP_URL
+        value: https://to8-short.onrender.com
       - key: DEFAULT_DOMAIN
         value: to8-short.onrender.com
         
